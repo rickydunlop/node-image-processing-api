@@ -1,5 +1,7 @@
 # Node image processing API 
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/rickydunlop/node-image-processing-api.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/rickydunlop/node-image-processing-api.svg?branch=master)](https://travis-ci.org/rickydunlop/node-image-processing-api)
 
 ## Description
