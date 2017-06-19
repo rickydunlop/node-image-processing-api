@@ -40,7 +40,7 @@ describe('GET /images', () => {
       .get('/v1/images')
       .set('Accept', 'application/json')
       .expect(200, (err, res) => {
-        expect(res.body.length).toBeGreaterThan(1);
+        expect(res.body.length).toBeGreaterThanOrEqual(1);
         done();
       });
   });
