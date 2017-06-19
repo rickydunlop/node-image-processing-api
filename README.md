@@ -11,7 +11,7 @@ Node image processing API using :
 
 ### Using Docker
 
-  docker-compose up
+    docker-compose up
 
 Depending on what version of Docker you are using the app will be available on either
 [http://localhost:3000](http://localhost:3000) or [http://192.168.99.100:3000/](http://192.168.99.100:3000/)
@@ -19,23 +19,24 @@ Depending on what version of Docker you are using the app will be available on e
 ### Running locally
 
 Install dependencies
-```
-npm install
-```
+
+
+    npm install
+
 
 Start a Local Server
-```
-npm start
-```
 
-Run Test
-```
-npm test
-```
+	npm start
+
+
+Run Tests
+
+	npm test
+
 
 Building and Running Production Server
-```
-npm run prod
-```
+
+	npm run prod
+
 
 **Note : Please make sure MongoDB is running before using ```npm start``` or ```npm run prod```**

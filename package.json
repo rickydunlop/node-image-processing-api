@@ -27,7 +27,7 @@
     "lint": "eslint ./",
     "prod": "npm run build && node dist/",
     "start": "nodemon ./ --exec babel-node",
-    "test": "cross-env NODE_ENV=test jest"
+    "test": "cross-env NODE_ENV=test PORT=3001 jest"
   },
   "dependencies": {
     "glob": "^7.1.1",

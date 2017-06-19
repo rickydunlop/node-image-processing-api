@@ -1,5 +1,5 @@
 import supertest from 'supertest';
-import app from '../server/';
+import app from '../';
 
 const temp = {};
 const request = supertest.agent(app.listen());
@@ -10,7 +10,7 @@ describe('POST api/authenticate', () => {
       .post('/v1/authenticate')
       .set('Accept', 'application/json')
       .send({
-        password: 'password',
+        password: 'bynd',
       })
       .expect(200, (err, res) => {
         temp.token = res.body.token;
@@ -19,70 +19,59 @@ describe('POST api/authenticate', () => {
   });
 });
 
-describe('POST /city', () => {
-  it('should add a city', (done) => {
+describe('POST /upload', () => {
+  it('should add an image', (done) => {
     request
-      .post('/api/cities')
+      .post('/v1/upload')
       .set('Accept', 'application/json')
       .set('Authorization', `Bearer ${temp.token}`)
       .set('Accept', 'application/json')
-      .send({
-        name: 'Bangkok',
-        totalPopulation: 8249117,
-        country: 'Thailand',
-        zipCode: 1200,
-      })
+      .attach('image', '__tests__/files/image.png')
       .expect(200, (err, res) => {
-        temp.idCity = res.body._id;
+        temp.idImage = res.body._id;
         done();
       });
   });
 });
 
-describe('GET /cities', () => {
-  it('should get all cities', (done) => {
+describe('GET /images', () => {
+  it('should get all images', (done) => {
     request
-      .get('/api/cities')
-      .set('Authorization', `Bearer ${temp.token}`)
+      .get('/v1/images')
       .set('Accept', 'application/json')
       .expect(200, (err, res) => {
-        expect(res.body.length).to.be.at.least(1);
+        expect(res.body.length).toBeGreaterThan(1);
         done();
       });
   });
 });
 
-describe('GET /cities/:id', () => {
-  it('should get a city', (done) => {
+describe('GET /images/:id', () => {
+  it('should get an image', (done) => {
     request
-      .get(`/api/cities/${temp.idCity}`)
-      .set('Authorization', `Bearer ${temp.token}`)
+      .get(`/v1/images/${temp.idImage}`)
       .set('Accept', 'application/json')
       .expect(200, (err, res) => {
-        res.body.name.should.equal('Bangkok');
-        res.body.totalPopulation.should.equal(8249117);
-        res.body.country.should.equal('Thailand');
-        res.body.zipCode.should.equal(1200);
-        res.body._id.should.equal(temp.idCity);
+        expect(res.body._id).toEqual(temp.idImage);
         done();
       });
   });
 });
 
-describe('DELETE /cities', () => {
-  it('should delete a city', (done) => {
+describe('DELETE /images/id', () => {
+  it('should delete an image', (done) => {
     request
-      .delete(`/api/cities/${temp.idCity}`)
+      .delete(`/v1/images/${temp.idImage}`)
       .set('Authorization', `Bearer ${temp.token}`)
       .set('Accept', 'application/json')
-      .expect(200, (err, res) => {
+      .expect(200, () => {
         done();
       });
   });
 
   it('should get error', (done) => {
     request
-      .get(`/api/cities/${temp.idCity}`)
+      .get(`/v1/images/${temp.idImage}`)
       .set('Accept', 'application/json')
       .expect(404, () => {
         done();
