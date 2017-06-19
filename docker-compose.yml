@@ -1,0 +1,12 @@
+version: "3"
+services:
+  web:
+    build: .
+    environment:
+      - DB_URL=mongodb://mongodb/node-image-processing-api
+    depends_on:
+      - mongodb
+    ports:
+      - '3000:3000'
+  mongodb:
+    image: mongo:3
