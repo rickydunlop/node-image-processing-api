@@ -40,3 +40,51 @@ Building and Running Production Server
 
 
 **Note : Please make sure MongoDB is running before using ```npm start``` or ```npm run prod```**
+
+
+## Usage
+
+There's a Postman collection included which has info on all the endpoints.
+
+### Get all images
+
+	curl -X GET http://localhost:3000/v1/images
+	
+### Retrieve a single image
+
+	curl -X GET http://localhost:3000/v1/images/:id
+
+### Authenticate
+
+	curl -X POST \
+  		http://localhost:3000/v1/authenticate \
+		-H 'cache-control: no-cache' \
+  		-H 'content-type: application/x-www-form-urlencoded' \
+	  	-d password=bynd
+
+### Upload
+
+	curl -X POST \
+		http://localhost:3000/v1/upload \
+		-H 'authorization: Bearer <token>' \
+		-H 'cache-control: no-cache' \
+		-H 'content-type: multipart/form-data' \
+		-F image=@__tests__/files/image.png
+		
+### Delete an image
+
+	curl -X DELETE \
+		http://localhost:3000/v1/images/:id \
+		-H 'authorization: Bearer <token>' \
+		-H 'cache-control: no-cache' \
+
+
+### Resize an image
+
+	curl -X GET http://localhost:3000/v1/resize/:id/:width/:height
+	
+### Rotate an image
+
+	curl -X GET http://localhost:3000/v1/rotate/:angle
+	
+_angle should be a multiple of 90_
