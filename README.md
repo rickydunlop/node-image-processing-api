@@ -1,4 +1,6 @@
-# Node image processing API [![Circle CI](https://circleci.com/gh/rickydunlop/node-image-processing-api.svg?style=svg)](https://circleci.com/gh/rickydunlop/node-image-processing-api)
+# Node image processing API 
+
+[![Build Status](https://travis-ci.org/rickydunlop/node-image-processing-api.svg?branch=master)](https://travis-ci.org/rickydunlop/node-image-processing-api)
 
 ## Description
 Node image processing API using :
