@@ -27,7 +27,7 @@
     "lint": "eslint ./",
     "prod": "npm run build && node dist/",
     "start": "nodemon ./ --exec babel-node",
-    "test": "cross-env NODE_ENV=test DB_URL=mongodb://localhost/node-image-processing-api-test jest"
+    "test": "cross-env NODE_ENV=test DB_URL=mongodb://localhost/node-image-processing-api-test jest --forceExit"
   },
   "dependencies": {
     "glob": "^7.1.1",

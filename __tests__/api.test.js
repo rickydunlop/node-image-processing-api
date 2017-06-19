@@ -1,10 +1,15 @@
 import supertest from 'supertest';
-import app from '../server';
+import app from '..';
 
 const temp = {};
 const request = supertest.agent(app.listen());
 
 describe('App', () => {
+  afterAll((done) => {
+    app.close();
+    done();
+  });
+
   describe('POST api/authenticate', () => {
     it('should return a token', async () => {
       const res = await request
