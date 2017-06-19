@@ -1,6 +1,7 @@
 import path from 'path';
 import sizeOf from 'image-size';
 import Sharp from 'sharp';
+import * as paginate from 'koa-ctx-paginate';
 import Image from '../models/images';
 import getNewFilePath from '../utils/getNewFilePath';
 
@@ -12,7 +13,21 @@ class ImageController {
    * @param {ctx} Koa Context
    */
   static async find(ctx) {
-    ctx.body = await Image.find();
+    const [results, itemCount] = await Promise.all([
+      Image.find({})
+        .limit(ctx.query.limit)
+        .skip(ctx.paginate.skip)
+        .lean()
+        .exec(),
+      Image.count({}),
+    ]);
+    const pageCount = Math.ceil(itemCount / ctx.query.limit);
+    ctx.body = {
+      object: 'list',
+      has_more: paginate.hasNextPages(ctx)(pageCount),
+      pagination: paginate.getArrayPages(ctx)(3, pageCount, ctx.query.page),
+      data: results,
+    };
   }
 
   /**
