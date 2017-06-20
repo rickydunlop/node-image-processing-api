@@ -14,11 +14,11 @@ router.get('/images', ImageController.find);
 // This route is protected, call POST /v1/authenticate to get the token
 router.get('/images/:id', ImageController.findById);
 
-// GET /v1/resize/id/width/height
-router.get('/resize/:id/:width/:height', ImageController.resize);
+// GET /v1/resize/id?width=<width>&height=<height>
+router.get('/resize/:id', ImageController.resize);
 
-// GET /v1/resize/id/angle
-router.get('/rotate/:id/:angle', ImageController.rotate);
+// GET /v1/resize/id?angle=<angle>
+router.get('/rotate/:id', ImageController.rotate);
 
 // POST /v1/images
 // This route is protected, call POST /v1/authenticate to get the token
