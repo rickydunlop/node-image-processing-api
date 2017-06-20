@@ -1,6 +1,6 @@
 import jwt from 'koa-jwt';
-import { secretKey } from '../config';
+import { SECRET_KEY } from '../config';
 
 export default jwt({
-  secret: secretKey,
+  secret: SECRET_KEY,
 });

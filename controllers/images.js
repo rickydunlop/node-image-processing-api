@@ -4,6 +4,7 @@ import Sharp from 'sharp';
 import * as paginate from 'koa-ctx-paginate';
 import Image from '../models/images';
 import getNewFileNameAndPath from '../utils/getNewFileNameAndPath';
+import { BASE_URL } from '../config';
 
 class ImageController {
   /* eslint-disable no-param-reassign*/
@@ -52,7 +53,7 @@ class ImageController {
     const dimensions = sizeOf(image.path);
     const imageData = {
       name: fileName,
-      url: `/uploads/${fileName}`,
+      url: `${BASE_URL}/uploads/${fileName}`,
       width: dimensions.width,
       height: dimensions.height,
     };
@@ -68,7 +69,8 @@ class ImageController {
     if (!image) {
       ctx.throw(404);
     }
-    ctx.body = image;
+    ctx.status = 200;
+    ctx.body = 'Image deleted';
   }
 
   /**
@@ -109,7 +111,7 @@ class ImageController {
       const newRendition = {
         params,
         name: newFileName,
-        url: `/uploads/${newFileName}`,
+        url: `${BASE_URL}/uploads/${newFileName}`,
         width: info.width,
         height: info.height,
       };
@@ -154,7 +156,7 @@ class ImageController {
       const newRendition = {
         params,
         name: newFileName,
-        url: `/uploads/${newFileName}`,
+        url: `${BASE_URL}/uploads/${newFileName}`,
         width: info.width,
         height: info.height,
       };

@@ -1,11 +1,11 @@
 import Router from 'koa-router';
-import { baseApi } from '../config';
+import { API_VERSION } from '../config';
 import jwt from '../middlewares/jwt';
 import ImageController from '../controllers/images';
 
 const router = new Router();
 
-router.prefix(`/${baseApi}`);
+router.prefix(`/${API_VERSION}`);
 
 // GET /v1/images
 router.get('/images', ImageController.find);

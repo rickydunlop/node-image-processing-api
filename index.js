@@ -7,9 +7,9 @@ import mongoose from 'mongoose';
 import helmet from 'koa-helmet';
 import { middleware as paginationMiddleware } from 'koa-ctx-paginate';
 import routing from './routes/';
-import { port, dbConfig } from './config';
+import { PORT, DB_URL } from './config';
 
-mongoose.connect(dbConfig);
+mongoose.connect(DB_URL);
 mongoose.connection.on('error', console.error);
 
 const app = new Koa();
@@ -31,7 +31,7 @@ app
 routing(app);
 
 if (!module.parent) {
-  app.listen(port, () => console.log(`✅  The server is running at http://localhost:${port}/`));
+  app.listen(PORT, () => console.log(`✅  The server is running at http://localhost:${PORT}/`));
 }
 
 export default app;
