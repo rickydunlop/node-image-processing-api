@@ -1,0 +1,187 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Node Image Processing API",
+		"_postman_id": "c6d83bad-02fe-2ab0-257c-af451a7ea3bb",
+		"description": "Image Processing API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authenticate",
+			"request": {
+				"url": "http://localhost:3000/v1/authenticate",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "password",
+							"value": "bynd",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "List images",
+			"request": {
+				"url": "http://localhost:3000/v1/images",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Upload",
+			"request": {
+				"url": "http://localhost:3000/v1/upload",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"description": "",
+							"type": "file",
+							"src": "article-placeholder1.png"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete an image",
+			"request": {
+				"url": {
+					"raw": "http://localhost:3000/v1/images/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"images",
+						":id"
+					],
+					"query": [],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Resize an image",
+			"request": {
+				"url": {
+					"raw": "http://localhost:3000/v1/resize/:id/:width/:height",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"resize",
+						":id",
+						":width",
+						":height"
+					],
+					"query": [],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						},
+						{
+							"key": "width",
+							"value": ""
+						},
+						{
+							"key": "height",
+							"value": ""
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Rotate an image",
+			"request": {
+				"url": {
+					"raw": "http://localhost:3000/v1/rotate/:id/:angle",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"rotate",
+						":id",
+						":angle"
+					],
+					"query": [],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						},
+						{
+							"key": "angle",
+							"value": ""
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "The angle should be a multiple of 90"
+			},
+			"response": []
+		}
+	]
+}
