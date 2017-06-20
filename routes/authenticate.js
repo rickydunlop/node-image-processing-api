@@ -1,5 +1,5 @@
 import Router from 'koa-router';
-import { baseApi } from '../config';
+import { API_VERSION } from '../config';
 
 import authenticate from '../middlewares/authenticate';
 
@@ -7,7 +7,7 @@ const api = 'authenticate';
 
 const router = new Router();
 
-router.prefix(`/${baseApi}/${api}`);
+router.prefix(`/${API_VERSION}/${api}`);
 
 // POST /v1/authenticate
 router.post('/', authenticate);

@@ -85,7 +85,7 @@ describe('App', () => {
         .delete(`/v1/images/${temp.idImage}`)
         .set('Authorization', `Bearer ${temp.token}`)
         .set('Accept', 'application/json')
-        .expect(200, done);
+        .expect(204, done);
     });
 
     it('should get error', (done) => {

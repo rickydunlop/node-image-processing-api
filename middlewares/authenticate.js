@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { secretKey } from '../config';
+import { SECRET_KEY } from '../config';
 
 export default (ctx) => {
   /* eslint-disable no-param-reassign*/
@@ -8,7 +8,7 @@ export default (ctx) => {
     ctx.body = {
       token: jwt.sign({
         role: 'admin',
-      }, secretKey),
+      }, SECRET_KEY),
       message: 'Authentication Successful',
     };
   } else {
