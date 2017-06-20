@@ -112,7 +112,7 @@
 			"name": "Resize an image",
 			"request": {
 				"url": {
-					"raw": "http://localhost:3000/v1/resize/:id/:width/:height",
+					"raw": "http://localhost:3000/v1/resize/:id?width=:width&height=:height",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -121,22 +121,25 @@
 					"path": [
 						"v1",
 						"resize",
-						":id",
-						":width",
-						":height"
+						":id"
 					],
-					"query": [],
-					"variable": [
-						{
-							"key": "id",
-							"value": ""
-						},
+					"query": [
 						{
 							"key": "width",
-							"value": ""
+							"value": ":width",
+							"equals": true,
+							"description": ""
 						},
 						{
 							"key": "height",
+							"value": ":height",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
 							"value": ""
 						}
 					]
@@ -152,7 +155,7 @@
 			"name": "Rotate an image",
 			"request": {
 				"url": {
-					"raw": "http://localhost:3000/v1/rotate/:id/:angle",
+					"raw": "http://localhost:3000/v1/rotate/:id?angle=:angle",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -161,17 +164,19 @@
 					"path": [
 						"v1",
 						"rotate",
-						":id",
-						":angle"
+						":id"
 					],
-					"query": [],
+					"query": [
+						{
+							"key": "angle",
+							"value": ":angle",
+							"equals": true,
+							"description": ""
+						}
+					],
 					"variable": [
 						{
 							"key": "id",
-							"value": ""
-						},
-						{
-							"key": "angle",
 							"value": ""
 						}
 					]
