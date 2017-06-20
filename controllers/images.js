@@ -57,7 +57,14 @@ class ImageController {
       width: dimensions.width,
       height: dimensions.height,
     };
-    ctx.body = await new Image(imageData).save();
+    const res = await new Image(imageData).save();
+    ctx.body = {
+      id: res.id,
+      name: res.name,
+      url: res.url,
+      width: res.width,
+      height: res.height,
+    };
   }
 
   /**
