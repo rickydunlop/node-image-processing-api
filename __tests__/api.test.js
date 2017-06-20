@@ -34,7 +34,7 @@ describe('App', () => {
         .attach('image', '__tests__/files/image.png')
         .expect(200);
       const { body } = res;
-      temp.idImage = body._id;
+      temp.idImage = body.id;
     });
   });
 
@@ -56,7 +56,7 @@ describe('App', () => {
         .set('Accept', 'application/json')
         .expect(200);
       const { body } = res;
-      expect(body._id).toEqual(temp.idImage);
+      expect(body.id).toEqual(temp.idImage);
     });
   });
 
