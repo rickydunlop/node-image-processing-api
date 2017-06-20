@@ -3,7 +3,7 @@ import sizeOf from 'image-size';
 import Sharp from 'sharp';
 import * as paginate from 'koa-ctx-paginate';
 import Image from '../models/images';
-import getNewFilePath from '../utils/getNewFilePath';
+import getNewFileNameAndPath from '../utils/getNewFileNameAndPath';
 
 class ImageController {
   /* eslint-disable no-param-reassign*/
@@ -101,15 +101,15 @@ class ImageController {
     } else {
       // Create a new rendition and save it
       const img = path.join(__dirname, '../public/uploads/', image.name);
-      const newFilePath = getNewFilePath(img, params);
+      const { newFileName, newFilePath } = getNewFileNameAndPath(img, params);
       const info = await Sharp(img)
         .resize(width, height)
         .toFile(newFilePath);
 
       const newRendition = {
         params,
-        name: newFilePath,
-        url: newFilePath,
+        name: newFileName,
+        url: `/uploads/${newFileName}`,
         width: info.width,
         height: info.height,
       };
@@ -146,15 +146,15 @@ class ImageController {
     } else {
       // Create a new rendition and save it
       const img = path.join(__dirname, '../public/uploads/', image.name);
-      const newFilePath = getNewFilePath(img, params);
+      const { newFileName, newFilePath } = getNewFileNameAndPath(img, params);
       const info = await Sharp(img)
         .rotate(angle)
         .toFile(newFilePath);
 
       const newRendition = {
         params,
-        name: newFilePath,
-        url: newFilePath,
+        name: newFileName,
+        url: `/uploads/${newFileName}`,
         width: info.width,
         height: info.height,
       };

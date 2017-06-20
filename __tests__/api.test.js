@@ -60,6 +60,25 @@ describe('App', () => {
     });
   });
 
+  describe('GET /resize/id', () => {
+    it('should get a resized image', async () => {
+      const res = await request
+        .get(`/v1/resize/${temp.idImage}?width=200&height=200`)
+        .set('Accept', 'application/json')
+        .expect(200);
+      const { body } = res;
+      expect(body.width).toEqual(200);
+      expect(body.height).toEqual(200);
+    });
+
+    it('should get error', (done) => {
+      request
+        .get(`/v1/images/${temp.idImage}?width=10`)
+        .set('Accept', 'application/json')
+        .expect(422, done);
+    });
+  });
+
   describe('DELETE /images/id', () => {
     it('should delete an image', (done) => {
       request
