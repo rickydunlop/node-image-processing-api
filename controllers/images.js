@@ -36,7 +36,7 @@ class ImageController {
    */
   static async findById(ctx) {
     try {
-      const image = await Image.findById(ctx.params.id);
+      const image = await Image.findOne({ id: ctx.params.id });
       if (!image) {
         ctx.throw(404);
       }
@@ -77,7 +77,7 @@ class ImageController {
    */
   static async delete(ctx) {
     try {
-      const image = await Image.findByIdAndRemove(ctx.params.id);
+      const image = await Image.findOne({ id: ctx.params.id }).remove();
       if (!image) {
         ctx.throw(404);
       }
@@ -96,7 +96,7 @@ class ImageController {
    */
   static async resize(ctx) {
     try {
-      const image = await Image.findById(ctx.params.id);
+      const image = await Image.findOne({ id: ctx.params.id });
       if (!image) {
         ctx.throw(404);
       }
@@ -141,7 +141,7 @@ class ImageController {
    */
   static async rotate(ctx) {
     try {
-      const image = await Image.findById(ctx.params.id);
+      const image = await Image.findOne({ id: ctx.params.id });
       if (!image) {
         ctx.throw(404);
       }
