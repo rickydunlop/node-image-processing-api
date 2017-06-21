@@ -85,10 +85,10 @@ There's a Postman collection included which has info on all the endpoints.
 
 ### Resize an image
 
-	curl -X GET http://localhost:3000/v1/resize/:id/:width/:height
+	curl -X GET http://localhost:3000/v1/resize/:id?width=x&height=x
 	
 ### Rotate an image
 
-	curl -X GET http://localhost:3000/v1/rotate/:angle
+	curl -X GET http://localhost:3000/v1/rotate?angle=x
 	
 _angle should be a multiple of 90_
