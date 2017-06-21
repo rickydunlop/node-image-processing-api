@@ -15,7 +15,7 @@ class ImageController {
    */
   static async find(ctx) {
     const [results, itemCount] = await Promise.all([
-      Image.find({})
+      Image.find({}, 'id name url width height renditions')
         .limit(ctx.query.limit)
         .skip(ctx.paginate.skip)
         .lean()
