@@ -40,7 +40,7 @@
     "koa-jwt": "^3.2.2",
     "koa-logger": "^3.0.0",
     "koa-router": "^7.2.1",
-    "koa-static": "^3.0.0",
+    "koa-static": "^4.0.0",
     "mongoose": "^4.4.3",
     "mongoose-sequence": "^3.2.0",
     "sharp": "^0.18.1"
