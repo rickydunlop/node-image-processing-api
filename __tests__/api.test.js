@@ -73,7 +73,7 @@ describe('App', () => {
 
     it('should get error', (done) => {
       request
-        .get(`/v1/images/${temp.idImage}?width=10`)
+        .get(`/v1/resize/${temp.idImage}?width=10`)
         .set('Accept', 'application/json')
         .expect(422, done);
     });
