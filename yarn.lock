@@ -182,6 +182,12 @@ async@^1.4.0:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
 
+async@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/async/-/async-2.5.0.tgz#843190fd6b7357a0b9e1c956edddd5ec8462b54d"
+  dependencies:
+    lodash "^4.14.0"
+
 asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
@@ -255,9 +261,9 @@ babel-core@^6.0.0, babel-core@^6.24.1:
     slash "^1.0.0"
     source-map "^0.5.0"
 
-babel-eslint@8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-8.0.0.tgz#ce06f385bdfb5b6d7e603f06222f891abd14c240"
+babel-eslint@^8.0.0:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-8.0.1.tgz#5d718be7a328625d006022eb293ed3008cbd6346"
   dependencies:
     babel-code-frame "7.0.0-beta.0"
     babel-traverse "7.0.0-beta.0"
@@ -3246,10 +3252,11 @@ mongodb@2.2.27:
     mongodb-core "2.1.11"
     readable-stream "2.2.7"
 
-mongoose-sequence@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/mongoose-sequence/-/mongoose-sequence-3.2.0.tgz#389dbf1639e557e7dae67b1cf119c84f329113a8"
+mongoose-sequence@4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/mongoose-sequence/-/mongoose-sequence-4.0.1.tgz#831ddd66ef96abf008a89413ea6d25837dfacc55"
   dependencies:
+    async "^2.5.0"
     lodash "^4.6.1"
 
 mongoose@^4.4.3:
