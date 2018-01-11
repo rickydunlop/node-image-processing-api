@@ -43,7 +43,7 @@
     "koa-static": "^4.0.0",
     "mongoose": "^4.4.3",
     "mongoose-sequence": "^3.2.0",
-    "sharp": "^0.18.1"
+    "sharp": "^0.19.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
