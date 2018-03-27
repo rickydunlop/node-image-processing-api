@@ -36,7 +36,7 @@
     "koa": "^2.0.0-alpha.7",
     "koa-body": "^2.1.0",
     "koa-ctx-paginate": "^0.0.3",
-    "koa-helmet": "^3.2.0",
+    "koa-helmet": "^4.0.0",
     "koa-jwt": "^3.2.2",
     "koa-logger": "^3.0.0",
     "koa-router": "^7.2.1",
