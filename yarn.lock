@@ -409,6 +409,13 @@ async@^1.4.0:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
 
+async@^2.5.0:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/async/-/async-2.6.1.tgz#b245a23ca71930044ec53fa46aa00a3e87c6a610"
+  integrity sha512-fNEiL2+AZt6AlAw/29Cr0UDe4sRAHCpEHh54WMz+Bb7QfNcFw4h3loofyJpLeQs4Yx7yuqu/2dLgM5hKOs6HlQ==
+  dependencies:
+    lodash "^4.17.10"
+
 asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
@@ -4102,10 +4109,12 @@ mongoose-legacy-pluralize@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/mongoose-legacy-pluralize/-/mongoose-legacy-pluralize-1.0.2.tgz#3ba9f91fa507b5186d399fb40854bff18fb563e4"
 
-mongoose-sequence@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/mongoose-sequence/-/mongoose-sequence-3.2.0.tgz#389dbf1639e557e7dae67b1cf119c84f329113a8"
+mongoose-sequence@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/mongoose-sequence/-/mongoose-sequence-5.0.0.tgz#28e9c9e91990a5cdcb33eabc5bfd6b29ac8a52fe"
+  integrity sha512-7nf4+pELUC9BJvBogrcCnLVTmIRsTT+FdRHphzSaGzMmqwWvOcvEWQaR070bIUd8ho67FGFJ7piJz5zojVJEhA==
   dependencies:
+    async "^2.5.0"
     lodash "^4.6.1"
 
 mongoose@^5.0.10:
