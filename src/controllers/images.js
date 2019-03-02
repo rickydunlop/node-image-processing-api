@@ -20,7 +20,7 @@ class ImageController {
         .skip(ctx.paginate.skip)
         .lean()
         .exec(),
-      Image.count({}),
+      Image.estimatedDocumentCount(),
     ]);
     const pageCount = Math.ceil(itemCount / ctx.query.limit);
     ctx.body = {
@@ -48,7 +48,7 @@ class ImageController {
    * @param {ctx} Koa Context
    */
   static async add(ctx) {
-    const image = ctx.request.body.files.image;
+    const image = ctx.request.files.image;
     const fileName = path.basename(image.path);
     const dimensions = sizeOf(image.path);
     const imageData = {
@@ -72,7 +72,7 @@ class ImageController {
    * @param {ctx} Koa Context
    */
   static async delete(ctx) {
-    const image = await Image.findOne({ id: ctx.params.id }).remove();
+    const image = await Image.deleteOne({ id: ctx.params.id });
     if (!image) {
       ctx.throw(404);
     }

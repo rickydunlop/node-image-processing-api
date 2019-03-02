@@ -6,10 +6,11 @@ import logger from 'koa-logger';
 import mongoose from 'mongoose';
 import helmet from 'koa-helmet';
 import { middleware as paginationMiddleware } from 'koa-ctx-paginate';
-import routing from './routes/';
+import routing from './routes';
 import { PORT, DB_URL } from './config';
 
-mongoose.connect(DB_URL);
+mongoose.set('useCreateIndex', true);
+mongoose.connect(DB_URL, { useNewUrlParser: true });
 mongoose.connection.on('error', console.error);
 
 const app = new Koa();

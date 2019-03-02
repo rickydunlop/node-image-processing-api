@@ -1,12 +1,21 @@
 import supertest from 'supertest';
-import app from '..';
+import mongoose from 'mongoose';
+import app from '../src';
 
 const temp = {};
-const request = supertest.agent(app.listen());
 
 describe('App', () => {
+  let server;
+  let request;
+
+  beforeAll(done => {
+    server = app.listen(done);
+    request = supertest.agent(server);
+  });
+
   afterAll((done) => {
-    app.close();
+    server.close();
+    mongoose.connection.close();
     done();
   });
 

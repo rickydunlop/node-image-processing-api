@@ -1,10 +1,8 @@
 import mongoose from 'mongoose';
 import AutoIncrement from 'mongoose-sequence';
 
-const Schema = mongoose.Schema;
-
-// To fix https://github.com/Automattic/mongoose/issues/4291
-mongoose.Promise = global.Promise;
+const { Schema } = mongoose;
+const AutoIncrementWithMongoose = AutoIncrement(mongoose);
 
 const imageSchema = new Schema({
   name: {
@@ -32,6 +30,6 @@ const imageSchema = new Schema({
   },
 });
 
-imageSchema.plugin(AutoIncrement, { inc_field: 'id' });
+imageSchema.plugin(AutoIncrementWithMongoose, { inc_field: 'id' });
 
 export default mongoose.model('Image', imageSchema);

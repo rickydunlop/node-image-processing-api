@@ -3,7 +3,7 @@ import authenticate from './authenticate';
 
 const routes = [images, authenticate];
 
-export default function (app) {
+export default (app) => {
   routes.forEach((route) => {
     app
       .use(route.routes())
