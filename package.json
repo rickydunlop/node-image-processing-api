@@ -31,7 +31,7 @@
     "test": "DB_URL=mongodb://localhost/node-image-processing-api-test jest"
   },
   "dependencies": {
-    "glob": "^7.1.3",
+    "glob": "^7.1.5",
     "image-size": "^0.8.0",
     "jsonwebtoken": "^8.5.0",
     "koa": "^2.7.0",
