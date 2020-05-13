@@ -42,7 +42,7 @@
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",
-    "mongoose": "^5.7.1",
+    "mongoose": "^5.9.14",
     "mongoose-sequence": "^5.0.1",
     "sharp": "^0.23.0"
   },
